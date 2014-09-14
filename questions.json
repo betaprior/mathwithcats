@@ -1,0 +1,100 @@
+
+[
+    {
+      "title": "H2G2 Q1",
+      "body": "What do you get when you multipyly 6 x 9?",
+      "comments": [
+        "Douglas Adams is awesome."
+      ],
+      "explanations": [
+        "It's the answer to life, universe, and everything."
+      ],
+      "options": [
+        "0",
+        "1",
+        "42",
+        "over 9000"
+      ],
+      "answer_idx": [
+        2
+      ],
+      "rating": -1,
+      "tags": [
+        "h2g2"
+      ]
+    },
+    {
+      "title": "H2G2 Q2",
+      "body": "What is Zaphod Beeblebrox's favorite drink?",
+      "comments": [],
+      "explanations": [
+        "The effect of drinking a Pan Galactic Gargle Blaster is like having your brains smashed out by a slice of lemon wrapped around a large gold brick."
+      ],
+      "options": [
+        "Diet Coke",
+        "Liquid that is almost, but not quite, entirely unlike tea",
+        "Pan-galactic gargle blaster",
+        "White Russian"
+      ],
+      "answer_idx": [
+        2
+      ],
+      "rating": -1,
+      "tags": [
+        "h2g2"
+      ]
+    },
+	{
+		"title": "Playing cards",
+		"body": "Three cards are pulled from a deck of 52 cards.  The probability of obtaining at least one club is",
+		"options": [
+			" 39P3 / 52P3 ",
+			" 1 – 39P3 / 52P3 ",
+			" 39C3 / 52C3 ",
+			"1 – 39C3 / 52C3 "
+		],
+		"answer_idx": [
+			3
+		],
+		"explanations": [
+			"When we see the words ‘at least’, it is often a good idea to calculate the complement and subtract from 1.  If we calculate at least one club, we would have to do the cases where you get 1 club, 2 clubs, and 3 clubs.  Rather than do three calculations, all we have to do is the case where we get no clubs, and then subtract from 1.  If we remove the clubs from the deck, we have 39 cards, and in this case, it does not matter what order the clubs are dealt.  So, we use combinations (order does not matter)… the probability that a club is not dealt is 39C3 / 52C3.  But, we want the probability that at least one is dealt, so the answer is 1 - 39C3 / 52C3."
+		],
+      "tags": [
+        "probability"
+      ]
+    },
+	{
+		"title": "Throwing dice",
+		"body": "If a fair six-sided die is tossed twice, the probability that the first toss will be a number less than 4 and the second toss will be a number greater than 4 is",
+		"options": [
+			"1/3", "5/6", "1/6", "3/4"
+		],
+		"answer_idx": [
+			2
+		],
+		"explanations": [
+			" This is a union, so we will multiply the two probabilities.  The probability that we get a number less than 4 is 3/6 or ½, and the probability that we get a number greater than 4 is 2/6 or 1/3, so the answer is ½ * 1/3 = 1/6."
+		],
+      "tags": [
+        "probability"
+      ]
+    },
+	{
+		"title": "More dice",
+		"body": "Two fair six-sided die are rolled and the face values are added.  The probability of obtaining an odd number greater than 8 is",
+		"options": [
+			"1/6", "2/9", "1/9", "1/4"
+		],
+		"answer_idx": [
+			0
+		],
+		"explanations": [
+			"There are 36 possible outcomes when rolling two dice.  The sums that odd numbers greater than 8 are 9 and 11.  We can get 9 in 4 different ways (3+6, 4+5, 5+4, 6+3) and we can get 11 in 2 different way (5+6, 6+5).  There are a total of 6 successful ways out of 36 total, so the answer is 6/36, or ⅙"
+		],
+      "tags": [
+        "probability"
+      ]
+    }
+
+
+  ]
