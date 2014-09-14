@@ -1,0 +1,162 @@
+body{
+ margin:0; 
+ padding:0;
+}
+a{
+ text-decoration: none;
+ color: #333;
+}
+#container
+{
+	margin: 0 auto;
+	width: 100%;
+	background: #fff;
+}
+
+#header
+{
+	background: #fff;
+	height: 50px;
+	border-bottom:1px solid #eee;
+}
+#header a{
+ padding: 17px 10px; 
+}
+#header a:hover{
+  background: #eee;
+}
+#header h1 { margin: 0; }
+#brand{
+  font-family: "garamond";
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+#logo{
+  width: 30px;
+  position: absolute;
+  top: 9px;
+}
+#brand_name{
+  margin-left: 25px;
+  margin-top: 14px;
+  position: absolute;
+}
+#brand_name a:hover{background:none}
+#searchBox{
+  position: absolute;
+  left: 230px;
+  top: 8px;
+}
+#searchBox input{
+  border: 1px solid #eee;
+  background: url(../img/search.png) no-repeat scroll 7px 7px;
+  padding-left:30px; 
+  color: #888;
+  width: 300px;
+}
+#searchBox *{
+  font-size: 14px;
+  padding: 5px;
+}
+#header_right{
+  float: right;
+  margin-right: 20px;
+  margin-top: 15px; 
+}
+#navigation
+{
+	float: left;
+	width: 100%;
+	background: #333;
+	display:none;
+}
+
+#navigation ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#navigation ul li
+{
+	list-style-type: none;
+	display: inline;
+}
+
+#navigation li a
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: #fff;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+
+#navigation li a:hover { background: #383; }
+
+#content-container
+{
+	float: left;
+	width: 100%;
+	background: #FFF repeat-y 68% 0;
+}
+
+#content
+{
+	clear: left;
+	float: left;
+	width: 50%;
+	padding: 20px 0;
+	margin: 0 0 0 4%;
+	display: inline;
+	padding-top: 30px;
+}
+
+#content h2 { 
+  margin: 0; 
+  font-family: sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px dotted #eee;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.question{
+  margin: 20px 0;
+  background: #EBEAE7;
+  padding: 10px;
+}
+
+#aside
+{
+	float: right;
+	width: 36%;
+	padding: 20px;
+	margin: 0 3% 0 0;
+	display: inline;
+	border-left: 1px solid #eee;
+	padding-top: 30px;
+}
+
+#aside h3 { 
+  margin: 0; 
+  font-family: sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px dotted #eee;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+#footer
+{
+	clear: left;
+	background: #ccc;
+	text-align: right;
+	padding: 20px;
+	height: 1%;
+	display:none;
+}
