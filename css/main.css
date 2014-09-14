@@ -146,6 +146,10 @@ a{
   text-align: center;
   background: lightyellow;
   padding: 15px 10px 0 10px;
+  position: fixed;
+  width: 435px;
+  overflow-y: auto;
+  height: 464px;
 }
 
 .question{
@@ -161,12 +165,32 @@ a{
 .question h1{
   font-size: 20px;
   margin: 0;
-  border-right: 0px solid #eee;}
+  border-right: 0px solid #eee;
+  display:none;}
 
 .body{
   padding: 10px 0;
-  margin-bottom: 20px;}
+  margin-bottom: 20px;
+  text-align:left;}
 
+#options{
+ padding-bottom: 30px; 
+}
+#options li{
+  list-style-type: upper-alpha;}
+  
+.option{
+  padding: 10px;
+  padding-left: 20px;
+  text-align: left;
+  line-height: 1.7em;}
+  
+/*.option:hover{
+  background: lightyellow}*/
+
+#tags{
+  text-align:left;}
+  
 .tag{
   padding: 5px;
   border: 1px solid #eee;

@@ -4,6 +4,11 @@
 	<title>Math with Cats</title>
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
 </head><body>
   
 <div id="container">
@@ -47,16 +52,13 @@
 </div>
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.1-latest/MathJax.js?config=TeX-AMS_HTML-full"></script>
 <script>
 $(document).ready(function(){ 
     $( "#questions, #myquestions" ).sortable({
           connectWith: ".connectedSortable",
-          handle: "h1",
+          handle: ".question, .body, #options",
         });
-        
-    $('.question').on('click', function(){
-      alert('hello');
-    });
   
     $('#searchBox input').on('keyup', function(){
       var keyword = $('#searchBox input').val();
@@ -81,16 +83,28 @@ $(document).ready(function(){
       					    
       					    cont += '<h1>' + questions[i].title + '</h1>';
       					    cont += '<p class="body">' + questions[i].body + '</p>';
-      					    cont += '<span class="tags">';
+      					    
+      					    // Options
+      					    if(questions[i].options.length != 0){
+      					      cont += '<div><ol id="options">';
+      					        for(var o=0; o<questions[i].options.length; o++){
+        					        cont += '<li class="option">' + questions[i].options[o] + '</li>';
+      					        }
+        					    cont += '</ol></div>';
+    					      }
+      					    
+      					    // Tags
+      					    cont += '<div id="tags">';
       					      for(var j=0; j<questions[i].tags.length; j++){
       					        cont += '<span class="tag">' + questions[i].tags[j] + '</span>';
     					        } 
-    					      cont += '</span>';
+    					      cont += '</div>';
       					    cont += '</li>';
     					      
     					      cont += '</div>';
     					    }
       						$("#questions").html( cont );
+      						MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
       					});
 
       					request.fail(function(jqXHR, textStatus) {
