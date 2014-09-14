@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>Math with Cats</title>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head><body>
+  
+<div id="container">
+	<div id="header">
+		<span id="brand"><img id="logo" src="img/logo.png"><span id="brand_name"><a href="/">Math with Cats</a></span></span>
+		<span id="searchBox"><input type="text" name="query" value=""></span>
+		<span id="header_right">
+		  <a href="#" style="margin-right:-6px; padding-right: 16px">Login</a>
+		  <a href="#" style="border-left:1px solid #eee; padding-left: 10px;">Signup</a>
+		</span>
+	</div>
+	<div id="navigation">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Services</a></li>
+			<li><a href="#">Contact us</a></li>
+		</ul>
+	</div>
+	<div id="content-container">
+		<div id="content">
+			<h2>
+				Questions
+			</h2>
+			<ul id="questions" class="connectedSortable">
+			  Type in the search box to find questions.
+	    </ul>
+		</div>
+		<div id="aside">
+			<h3>
+				My Contents
+			</h3>
+      <ul id="myquestions" class="connectedSortable">
+        You may drag questions here.
+      </ul>
+		</div>
+		<div id="footer">
+			Copyright &copy;, 2014
+		</div>
+	</div>
+</div>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function(){ 
+    $( "#questions, #myquestions" ).sortable({
+          connectWith: ".connectedSortable",
+          handle: "h1",
+        });
+        
+    $('.question').on('click', function(){
+      alert('hello');
+    });
+  
+    $('#searchBox input').on('keyup', function(){
+      var keyword = $('#searchBox input').val();
+      
+      var request = $.ajax({
+      						url: "php/query.php",
+      						data: { key : keyword},
+      						type: "GET",			
+      						dataType: "html"
+      					},
+      					"json");
+
+      					request.done(function(questions) {
+      					  questions = jQuery.parseJSON(questions);
+      					  if( questions.length == 0 ){
+					          $("#questions").html( "No questions tagged <em>" + keyword + "</em>");
+					          return false;
+					        }
+      					  var cont = "Showing results for <em>" + keyword + "</em>";
+      					  for(var i=0; i<questions.length; i++){
+      					    cont += '<li class="ui-state-default question">';
+      					    
+      					    cont += '<h1>' + questions[i].title + '</h1>';
+      					    cont += '<p class="body">' + questions[i].body + '</p>';
+      					    cont += '<span class="tags">';
+      					      for(var j=0; j<questions[i].tags.length; j++){
+      					        cont += '<span class="tag">' + questions[i].tags[j] + '</span>';
+    					        } 
+    					      cont += '</span>';
+      					    cont += '</li>';
+    					      
+    					      cont += '</div>';
+    					    }
+      						$("#questions").html( cont );
+      					});
+
+      					request.fail(function(jqXHR, textStatus) {
+      						console.log( "Request failed: " + textStatus );
+      					});
+      
+    });
+});
+</script>
+</body>
+</html>
