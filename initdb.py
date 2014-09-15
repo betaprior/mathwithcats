@@ -2,7 +2,7 @@ import json
 from app import db
 db.create_all()
 from app import Question, Comment, Tag, Explanation
-with open("./questions.json") as f:
+with open("./questions2.json") as f:
 	try:
 		questions = json.load(f)
 		for qdict in questions:

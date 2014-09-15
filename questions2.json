@@ -1,0 +1,140 @@
+
+[
+    {
+      "title": "HG2G Q1",
+      "body": "What do you get when you multipyly 6 x 9?",
+      "comments": [
+        "Douglas Adams is awesome."
+      ],
+      "explanations": [
+        "It's the answer to life, universe, and everything."
+      ],
+      "options": [
+        "0",
+        "1",
+        "42",
+        "over 9000"
+      ],
+      "answer_idx": [
+        2
+      ],
+      "rating": -1,
+      "tags": [
+        "hg2g"
+      ]
+    },
+    {
+      "title": "HG2G Q2",
+      "body": "What is Zaphod Beeblebrox's favorite drink?",
+      "comments": [],
+      "explanations": [
+        "The effect of drinking a Pan Galactic Gargle Blaster is like having your brains smashed out by a slice of lemon wrapped around a large gold brick."
+      ],
+      "options": [
+        "Diet Coke",
+        "Liquid that is almost, but not quite, entirely unlike tea",
+        "Pan-galactic gargle blaster",
+        "White Russian"
+      ],
+      "answer_idx": [
+        2
+      ],
+      "rating": -1,
+      "tags": [
+        "hg2g"
+      ]
+    },
+	{
+		"title": "---",
+		"body": "The first cat show was held in 1871 at the Crystal Palace in which city?",
+		"options": [
+			"London",
+			"Moscow",
+			"Yerevan",
+			"Paris"
+		],
+		"tags": ["cats"]
+	},
+	{
+		"title": "---",
+		"body": "Which ancient society worshipped cats?",
+		"options": [
+			"Greece",
+			"Egypt",
+			"Rome",
+			"Persia"
+		],
+		"tags": ["cats"]
+	},
+	{
+		"title": "---",
+		"body": "What's your favorite animal?",
+		"options": [
+			"Dog",
+			"Camel",
+			"Porcupine",
+			"Cat!!!"
+		],
+		"tags": ["cats"]
+	},
+
+
+{"title":"---","body":"\n Three cards are pulled from a deck of $52$ cards. The probability of obtaining at least one club is:\n ","options":["$\\dfrac{_{39}P_{3}}{_{52}P_{3}}$","$1-\\dfrac{_{39}P_{3}}{_{52}P_{3}}$","$\\dfrac{_{39}C_3}{_{52}C_3}$","$1-\\dfrac{_{39}C_3}{_{52}C_3}$"],"answer":"2","tags":["probability"]},
+{"title":"---","body":"\n If a fair six-sided die is tossed twice, the probability that the first toss will be a number less than $4$ and the second toss will be a number greater than $4$ is:\n ","options":["$1\/3$","$5\/6$","$1\/6$","$3\/4$"],"answer":"2","tags":["probability"]},
+	{"title":"---","body":"\n Two fair six-sided die are rolled and the face values are added. The probability of obtaining an odd number greater than $8$ is:\n ","options":["$1\/6$","$2\/9$","$1\/9$","$1\/4$"],"answer":"2","tags":["probability"]},
+{"title":"---","body":"\n A jar contains $3$ chocolate chip cookies and $x$ oatmeal cookies. Two cookies are pulled from the jar without replacement. An expression that represents the probability one cookie is chocolate chip and the next cookie is oatmeal is:\n ","options":["$\\left(\\dfrac{3}{x+3}\\right)\\left(\\dfrac{x-1}{x+2}\\right)$","$\\left(\\dfrac{3}{x+3}\\right)\\left(\\dfrac{x}{x+2}\\right)$","$\\left(\\dfrac{3}{x+3}\\right)\\left(\\dfrac{x-1}{x+2}\\right)$","$\\left(\\dfrac{3}{x+3}\\right)\\left(\\dfrac{2}{x+2}\\right)$"],"answer":"2","tags":["probability"]},{"title":"---","body":"\n In a playoff series, the probability that Team A wins over Team B is $3\/5$ and the probability that Team C wins over Team D is $4\/7$. If the probabilities are independent, the probability that Team A wins and Team C loses is:\n ","options":["$9\/35$","$12\/35$","$7\/12$","$1\/3$"],"answer":"2","tags":["probability"]},{"title":"---","body":"\n A $5$ digit PIN can begin with any digit (except $0$) and the remaining digits have no restriction. If repeated digits are allowed, the probability of the PIN beginning with a $7$ and ending with an $8$ is:\n ","options":["$1\/10$","$2\/5$","$1\/100$","$1\/90$"],"answer":"2","tags":["probability"]},{"title":"---","body":"\n Two cards are drawn without replacement from a deck of $52$ cards. The probability of the first card being a red face card and the second card being a club is:\n ","options":["$1\/34$","$3\/104$","$19\/52$","$9\/22$"],"answer":"2","tags":["probability"]},{"title":"---","body":"\n In a bag, there are 11 red marbles, 8 blue marbles, and 3 white marbles in the bag. What’s the probability of selecting of randomly selecting a blue marble from the bag?:\n ","options":["$.275$","$.364$","$.375$","$.500$"],"answer":"2","tags":["probability"]},{"title":"---","body":"\n The probability that a white adult man with a high white blood count contracts leukemia is $0.35$. A proper interpretation of this probability is:\n ","options":["There’s a $35%$ chance that a randomly selected white adult man will contract leukemia.","Three out of every five white adult men with a high white blood count will contract leukemia.","There’s a 65% chance that a randomly selected white adult man with a high white blood cell count will contract leukemia.","We’d expect that, in a sample of 100 white adult men with high white blood cell counts, 35 will contract leukemia."],"answer":"2","tags":["probability"]},
+
+	{
+		"title": "Playing cards",
+		"body": "Three cards are pulled from a deck of 52 cards.  The probability of obtaining at least one club is",
+		"options": [
+			" 39P3 / 52P3 ",
+			" 1 – 39P3 / 52P3 ",
+			" 39C3 / 52C3 ",
+			"1 – 39C3 / 52C3 "
+		],
+		"answer_idx": [
+			3
+		],
+		"explanations": [
+			"When we see the words ‘at least’, it is often a good idea to calculate the complement and subtract from 1.  If we calculate at least one club, we would have to do the cases where you get 1 club, 2 clubs, and 3 clubs.  Rather than do three calculations, all we have to do is the case where we get no clubs, and then subtract from 1.  If we remove the clubs from the deck, we have 39 cards, and in this case, it does not matter what order the clubs are dealt.  So, we use combinations (order does not matter)… the probability that a club is not dealt is 39C3 / 52C3.  But, we want the probability that at least one is dealt, so the answer is 1 - 39C3 / 52C3."
+		],
+      "tags": [
+        "probability"
+      ]
+    },
+	{
+		"title": "Throwing dice",
+		"body": "If a fair six-sided die is tossed twice, the probability that the first toss will be a number less than 4 and the second toss will be a number greater than 4 is",
+		"options": [
+			"1/3", "5/6", "1/6", "3/4"
+		],
+		"answer_idx": [
+			2
+		],
+		"explanations": [
+			" This is a union, so we will multiply the two probabilities.  The probability that we get a number less than 4 is 3/6 or ½, and the probability that we get a number greater than 4 is 2/6 or 1/3, so the answer is ½ * 1/3 = 1/6."
+		],
+      "tags": [
+        "probability"
+      ]
+    },
+	{
+		"title": "More dice",
+		"body": "Two fair six-sided die are rolled and the face values are added.  The probability of obtaining an odd number greater than 8 is",
+		"options": [
+			"1/6", "2/9", "1/9", "1/4"
+		],
+		"answer_idx": [
+			0
+		],
+		"explanations": [
+			"There are 36 possible outcomes when rolling two dice.  The sums that odd numbers greater than 8 are 9 and 11.  We can get 9 in 4 different ways (3+6, 4+5, 5+4, 6+3) and we can get 11 in 2 different way (5+6, 6+5).  There are a total of 6 successful ways out of 36 total, so the answer is 6/36, or ⅙"
+		],
+      "tags": [
+        "probability"
+      ]
+    }
+
+
+  ]

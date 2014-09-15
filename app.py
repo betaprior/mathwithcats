@@ -10,7 +10,7 @@ from flask import make_response
 import re
 import os
 import json
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'app.db')
@@ -48,15 +48,6 @@ class Question(db.Model):
 		self.body = body
 		self.title = title
 
-	# def __init__(self, title, body, options, rating=-1, tags=None, explanations=None, comments=None):
-	# 	self.body = body
-	# 	self.title = title
-	# 	self.options = options
-	# 	self.rating = rating
-	# 	self.tags = tags
-	# 	self.explanations = explanations
-	# 	self.comments = comments
-
 	def __repr__(self):
 		return '<Question: %r>' % self.body
 
@@ -84,6 +75,11 @@ class Question(db.Model):
 		for c in d.get("comments", []):
 			q.comments.append(Comment(c))
 		return q
+
+	def match_tags(self, key):
+		if key == "*": return True
+		if not key: return False
+		return any(x.startswith(key) for x in self.tags)
 
 	def json_view(self):
 		return {
@@ -141,43 +137,19 @@ class Comment(db.Model):
 
 @app.route("/")
 def root():
-	return render_template('index.html')
+	return app.send_static_file('index.html')
+	# return render_template('index.html')
 
 @app.route('/questions')
-def get_users():
-    questions = Question.query.all()
-    return jsonify(collection=[i.json_view() for i in questions])
+def get_questions():
+	questions = Question.query.all()
+	key = request.args.get('key')
+	matches = [q for q in questions if q.match_tags(key)]
+	return jsonify(collection=[i.json_view() for i in matches])
 
 @app.route("/version")
 def version():
 	return "Flask version: %s" % __version__
-
-@app.route("/e/<string:algoname>")
-def get_algo_text(algoname):
-	algofile = "static/algorithms.js"
-	patt_start = "^\s*/\*\s*BEGIN\s+ALGORITHM\s+%s" % algoname
-	patt_end = "^\s*/\*\s*END\s+ALGORITHM"
-	linebuffer = []
-	with open(algofile, 'r') as f:
-		buffering = False
-		for line in f:
-			if re.match(patt_start, line):
-				buffering = True
-				continue
-			if buffering and re.match(patt_end, line):
-				buffering = False
-				break
-			if buffering:
-				line = line.replace("recordAnimatedAlgorithm:", "this.graphView.recordAnimatedAlgorithm =")
-				linebuffer.append(line.rstrip())
-	if len(linebuffer) == 0:
-		raise InvalidSearch("Cannot find predefined code for algorithm %s" % algoname)
-	return render_template('algocode', lines=linebuffer)
-
-@app.route("/testtemplate")
-def test_template():
-	lines = ["one", "two", "three"]
-	return render_template('algocode', lines=lines)
 
 @app.route("/test<string:num>")
 def numbered_test(num):
@@ -186,13 +158,8 @@ def numbered_test(num):
 
 @app.route('/files/<path:path>')
 def static_proxy(path):
-    # send_static_file will guess the correct MIME type
-    return app.send_static_file(os.path.join('files', path))
-
-@app.route('/fonts/<path:path>')
-def static_proxy_fonts(path):
-    # send_static_file will guess the correct MIME type
-    return app.send_static_file(os.path.join('fonts', path))
+	# send_static_file will guess the correct MIME type
+	return app.send_static_file(os.path.join('files', path))
 
 
 class InvalidSearch(Exception):

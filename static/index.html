@@ -10,7 +10,7 @@
   });
   </script>
 </head><body>
-  
+
 <div id="container">
 	<div id="header">
 		<span id="brand"><img id="logo" src="img/logo.png"><span id="brand_name"><a href="/">Math with Cats</a></span></span>
@@ -54,25 +54,25 @@
 <script src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.1-latest/MathJax.js?config=TeX-AMS_HTML-full"></script>
 <script>
-$(document).ready(function(){ 
+$(document).ready(function(){
     $( "#questions, #myquestions" ).sortable({
           connectWith: ".connectedSortable",
           handle: ".question, .body, #options",
         });
-  
+
     $('#searchBox input').on('keyup', function(){
       var keyword = $('#searchBox input').val();
-      
+
       var request = $.ajax({
-      						url: "php/query.php",
+      						url: "/questions",
       						data: { key : keyword},
-      						type: "GET",			
+      						type: "GET",
       						dataType: "html"
       					},
       					"json");
 
       					request.done(function(questions) {
-      					  questions = jQuery.parseJSON(questions);
+      					  questions = jQuery.parseJSON(questions).collection;
       					  if( questions.length == 0 ){
 					          $("#questions").html( "No questions tagged <em>" + keyword + "</em>");
 					          return false;
@@ -80,10 +80,10 @@ $(document).ready(function(){
       					  var cont = "Showing results for <em>" + keyword + "</em>";
       					  for(var i=0; i<questions.length; i++){
       					    cont += '<li class="ui-state-default question">';
-      					    
+
       					    cont += '<h1>' + questions[i].title + '</h1>';
       					    cont += '<p class="body">' + questions[i].body + '</p>';
-      					    
+
       					    // Options
       					    if(questions[i].options.length != 0){
       					      cont += '<div><ol id="options">';
@@ -92,15 +92,15 @@ $(document).ready(function(){
       					        }
         					    cont += '</ol></div>';
     					      }
-      					    
+
       					    // Tags
       					    cont += '<div id="tags">';
       					      for(var j=0; j<questions[i].tags.length; j++){
       					        cont += '<span class="tag">' + questions[i].tags[j] + '</span>';
-    					        } 
+    					        }
     					      cont += '</div>';
       					    cont += '</li>';
-    					      
+
     					      cont += '</div>';
     					    }
       						$("#questions").html( cont );
@@ -110,7 +110,7 @@ $(document).ready(function(){
       					request.fail(function(jqXHR, textStatus) {
       						console.log( "Request failed: " + textStatus );
       					});
-      
+
     });
 });
 </script>
